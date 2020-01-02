@@ -3,7 +3,7 @@ def gene():
         yield(i*i)
 
 obj = gene()
-# you  can call one by one
+# you  can call one by one using next function
 print(next(obj))
 
 # Another way to create generator is as follows
