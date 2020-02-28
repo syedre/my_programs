@@ -1,0 +1,47 @@
+import React,{Component} from 'react';
+import {Text,View,StyleSheet,TouchableOpacity} from 'react-native';
+class Home extends Component
+{
+  state={con:''}
+
+show=()=>
+{
+    //alert("show function called");
+    var req=new XMLHttpRequest();
+    req.onreadystatechange=(e)=>
+    {
+        if(req.status==200 && req.readyState==4)
+        {
+            alert(req.responseText);
+        }
+    }
+    req.open("GET","https://www.youtube.com/");
+    req.send();
+}
+render()
+{
+    return(
+    <View style={styles.container}>
+    <TouchableOpacity onPress={()=>this.show()} style={styles.box}><Text>Click</Text></TouchableOpacity>
+    <Text>{this.state.con}</Text>
+    </View>
+    );
+}
+}  
+  export default Home;
+
+const styles=StyleSheet.create({
+box:
+{
+    padding:10,
+    width:200,
+    marginTop:10,
+    backgroundColor:'rgba(215, 44, 149, 0.7)',
+    alignItems:'center'
+},
+container:
+{
+    flexDirection:'row',
+    justifyContent:'center'
+}
+});
